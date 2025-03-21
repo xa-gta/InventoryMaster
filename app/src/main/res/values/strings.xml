@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">InventoryMaster</string>
+        <!-- Existing strings -->
+        <string-array name="filter_options">
+            <item>All</item>
+            <item>Low Stock</item>
+            <item>Unit: kg</item>
+            <item>Unit: unit</item>
+        </string-array>
+</resources>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>ItemViewModelFactory.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ItemViewModelFactory.kt</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">xa</span><span class="s2">.</span><span class="s1">inventorymaster</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s1">import android</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">Application</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s1">import androidx</span><span class="s2">.</span><span class="s1">lifecycle</span><span class="s2">.</span><span class="s1">AbstractSavedStateViewModelFactory</span>
+<a name="l5"><span class="ln">5    </span></a><span class="s1">import androidx</span><span class="s2">.</span><span class="s1">lifecycle</span><span class="s2">.</span><span class="s1">SavedStateHandle</span>
+<a name="l6"><span class="ln">6    </span></a><span class="s1">import androidx</span><span class="s2">.</span><span class="s1">lifecycle</span><span class="s2">.</span><span class="s1">ViewModel</span>
+<a name="l7"><span class="ln">7    </span></a><span class="s1">import androidx</span><span class="s2">.</span><span class="s1">savedstate</span><span class="s2">.</span><span class="s1">SavedStateRegistryOwner</span>
+<a name="l8"><span class="ln">8    </span></a>
+<a name="l9"><span class="ln">9    </span></a><span class="s0">class </span><span class="s1">ItemViewModelFactory</span><span class="s2">(</span>
+<a name="l10"><span class="ln">10   </span></a>    <span class="s1">private </span><span class="s0">val </span><span class="s1">application: Application</span><span class="s2">,</span>
+<a name="l11"><span class="ln">11   </span></a>    <span class="s1">owner: SavedStateRegistryOwner</span>
+<a name="l12"><span class="ln">12   </span></a><span class="s2">) </span><span class="s1">: AbstractSavedStateViewModelFactory</span><span class="s2">(</span><span class="s1">owner</span><span class="s2">, </span><span class="s0">null</span><span class="s2">) {</span>
+<a name="l13"><span class="ln">13   </span></a>    <span class="s1">override </span><span class="s0">fun </span><span class="s2">&lt;</span><span class="s1">T : ViewModel</span><span class="s2">&gt; </span><span class="s1">create</span><span class="s2">(</span>
+<a name="l14"><span class="ln">14   </span></a>        <span class="s1">key: String</span><span class="s2">,</span>
+<a name="l15"><span class="ln">15   </span></a>        <span class="s1">modelClass: Class</span><span class="s2">&lt;</span><span class="s1">T</span><span class="s2">&gt;,</span>
+<a name="l16"><span class="ln">16   </span></a>        <span class="s1">handle: SavedStateHandle</span>
+<a name="l17"><span class="ln">17   </span></a>    <span class="s2">)</span><span class="s1">: T </span><span class="s2">{</span>
+<a name="l18"><span class="ln">18   </span></a>        <span class="s0">if </span><span class="s2">(</span><span class="s1">modelClass</span><span class="s2">.</span><span class="s1">isAssignableFrom</span><span class="s2">(</span><span class="s1">ItemViewModel::</span><span class="s0">class</span><span class="s2">.</span><span class="s1">java</span><span class="s2">)) {</span>
+<a name="l19"><span class="ln">19   </span></a>            <span class="s1">@Suppress</span><span class="s2">(</span><span class="s3">&quot;UNCHECKED_CAST&quot;</span><span class="s2">)</span>
+<a name="l20"><span class="ln">20   </span></a>            <span class="s0">return </span><span class="s1">ItemViewModel</span><span class="s2">(</span><span class="s1">application</span><span class="s2">, </span><span class="s1">handle</span><span class="s2">) </span><span class="s0">as </span><span class="s1">T</span>
+<a name="l21"><span class="ln">21   </span></a>        <span class="s2">}</span>
+<a name="l22"><span class="ln">22   </span></a>        <span class="s0">throw </span><span class="s1">IllegalArgumentException</span><span class="s2">(</span><span class="s3">&quot;Unknown ViewModel class&quot;</span><span class="s2">)</span>
+<a name="l23"><span class="ln">23   </span></a>    <span class="s2">}</span>
+<a name="l24"><span class="ln">24   </span></a><span class="s2">}</span></pre>
+</body>
+</html>

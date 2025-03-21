@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>App.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+App.kt</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">xa</span><span class="s2">.</span><span class="s1">inventorymaster</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s1">import android</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">Application</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s1">import androidx</span><span class="s2">.</span><span class="s1">room</span><span class="s2">.</span><span class="s1">Room</span>
+<a name="l5"><span class="ln">5    </span></a>
+<a name="l6"><span class="ln">6    </span></a><span class="s0">class </span><span class="s1">App : Application</span><span class="s2">() {</span>
+<a name="l7"><span class="ln">7    </span></a>    <span class="s1">companion </span><span class="s0">object </span><span class="s2">{</span>
+<a name="l8"><span class="ln">8    </span></a>        <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">database: ItemDatabase</span>
+<a name="l9"><span class="ln">9    </span></a>            <span class="s1">private set</span>
+<a name="l10"><span class="ln">10   </span></a>    <span class="s2">}</span>
+<a name="l11"><span class="ln">11   </span></a>
+<a name="l12"><span class="ln">12   </span></a>    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate</span><span class="s2">() {</span>
+<a name="l13"><span class="ln">13   </span></a>        <span class="s0">super</span><span class="s2">.</span><span class="s1">onCreate</span><span class="s2">()</span>
+<a name="l14"><span class="ln">14   </span></a>        <span class="s1">database </span><span class="s2">= </span><span class="s1">Room</span><span class="s2">.</span><span class="s1">databaseBuilder</span><span class="s2">(</span>
+<a name="l15"><span class="ln">15   </span></a>            <span class="s1">applicationContext</span><span class="s2">,</span>
+<a name="l16"><span class="ln">16   </span></a>            <span class="s1">ItemDatabase::</span><span class="s0">class</span><span class="s2">.</span><span class="s1">java</span><span class="s2">,</span>
+<a name="l17"><span class="ln">17   </span></a>            <span class="s3">&quot;item_database&quot;</span>
+<a name="l18"><span class="ln">18   </span></a>        <span class="s2">).</span><span class="s1">build</span><span class="s2">()</span>
+<a name="l19"><span class="ln">19   </span></a>    <span class="s2">}</span>
+<a name="l20"><span class="ln">20   </span></a><span class="s2">}</span></pre>
+</body>
+</html>
