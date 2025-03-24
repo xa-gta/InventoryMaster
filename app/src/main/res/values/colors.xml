@@ -1,20 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Light Theme Colors -->
-    <color name="colorPrimary">#26A69A</color> <!-- Teal -->
-    <color name="colorPrimaryDark">#00897B</color>
-    <color name="colorSecondary">#FFB300</color> <!-- Amber -->
-    <color name="accent">#FFB300</color>
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
-    <color name="background">#FFF8E1</color> <!-- Cream -->
-    <color name="card_background">#FFFFFF</color>
-
-    <!-- Dark Theme Colors -->
-    <color name="colorPrimaryDarkTheme">#4DB6AC</color>
-    <color name="colorPrimaryDarkThemeDark">#26A69A</color>
-    <color name="colorSecondaryDarkTheme">#FFCA28</color> <!-- Amber variant -->
-    <color name="accentDarkTheme">#FFCA28</color>
+    <color name="colorPrimaryDarkTheme">#BB86FC</color>
+    <color name="colorPrimaryDarkThemeDark">#3700B3</color>
+    <color name="colorSecondaryDarkTheme">#03DAC5</color>
     <color name="text_primary_dark_theme">#FFFFFF</color>
     <color name="text_secondary_dark_theme">#B0BEC5</color>
     <color name="background_dark_theme">#121212</color>

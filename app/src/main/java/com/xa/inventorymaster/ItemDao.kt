@@ -20,3 +20,5 @@ interface ItemDao {
     @Query("SELECT * FROM item_table")
     suspend fun getAllItemsList(): List<Item>
 }
+
+// This is a test message to check if grok is able to read files - SECRET CODE IS 3579

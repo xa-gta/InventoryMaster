@@ -53,4 +53,5 @@ dependencies {
     // Add ViewPager2 and Fragment dependencies
     implementation("androidx.viewpager2:viewpager2:1.1.0")
     implementation("androidx.fragment:fragment-ktx:1.8.4")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
 }

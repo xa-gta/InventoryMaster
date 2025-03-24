@@ -75,6 +75,10 @@ class StorageFragment : Fragment() {
         val adapter = ItemAdapter { item ->
             showEditItemDialog(item)
         }
+        binding.recyclerView.itemAnimator = DefaultItemAnimator().apply {
+            addDuration = 300
+            removeDuration = 300
+        }
         binding.inventoryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.inventoryRecyclerView.adapter = adapter
 

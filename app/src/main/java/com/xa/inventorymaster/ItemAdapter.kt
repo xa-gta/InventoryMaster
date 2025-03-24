@@ -20,6 +20,14 @@ class ItemAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
+        if (item.photoPath != null) {
+            Glide.with(holder.itemView.context)
+                .load(item.photoPath)
+                .placeholder(R.drawable.ic_item_default)
+                .into(holder.binding.itemImage)
+        } else {
+            holder.binding.itemImage.setImageResource(R.drawable.ic_item_default)
+        }
     }
 
     inner class ItemViewHolder(private val binding: ItemRowBinding) : RecyclerView.ViewHolder(binding.root) {

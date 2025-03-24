@@ -19,6 +19,10 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.xa.inventorymaster.databinding.ActivityMainBinding
 import com.xa.inventorymaster.databinding.DialogAddItemBinding
 import java.io.File
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     private val storageLocations = listOf(
@@ -57,16 +61,11 @@ class MainActivity : AppCompatActivity() {
         binding.viewPager.adapter = StorageLocationAdapter(this, storageLocations)
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = storageLocations[position]
-            tab.setIcon(when (position) {
-                0 -> R.drawable.ic_kitchen
-                1 -> R.drawable.ic_kitchen
-                2 -> R.drawable.ic_kitchen
-                3 -> R.drawable.ic_kitchen
-                4 -> R.drawable.ic_kitchen
-                5 -> R.drawable.ic_kitchen
-                6 -> R.drawable.ic_coffee
-                7 -> R.drawable.ic_loft
-                8 -> R.drawable.ic_loft
+            // Updated icon assignment to match the storage locations
+            tab.setIcon(when (storageLocations[position]) {
+                "Kitchen A", "Kitchen B", "Kitchen C", "Kitchen D", "Kitchen E", "Kitchen F" -> R.drawable.ic_kitchen
+                "Coffee Shelf" -> R.drawable.ic_coffee
+                "Guest Loft", "Main Loft" -> R.drawable.ic_loft
                 else -> R.drawable.ic_kitchen
             })
         }.attach()
@@ -229,10 +228,10 @@ class MainActivity : AppCompatActivity() {
             val safetyStock = safetyStockStr.toIntOrNull() ?: 0
             val storageLocation = StorageLocation.valueOf(storageLocationStr)
 
-            kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.Main).launch {
+            CoroutineScope(Dispatchers.Main).launch {
                 try {
                     Log.d("MainActivity", "Checking for existing item with name: $name")
-                    val existingItem = withContext(kotlinx.coroutines.Dispatchers.IO) {
+                    val existingItem = withContext(Dispatchers.IO) {
                         viewModel.getAllItems().find { it.name.equals(name, ignoreCase = true) }
                     }
                     if (existingItem != null) {
@@ -272,7 +271,7 @@ class MainActivity : AppCompatActivity() {
                             weight = unit,
                             safetyStock = safetyStock
                         )
-                        withContext(kotlinx.coroutines.Dispatchers.IO) {
+                        withContext(Dispatchers.IO) {
                             viewModel.insert(newItem)
                         }
                         viewModel.clearFormData()
